@@ -1,8 +1,10 @@
 use serde::{Deserialize, Serialize};
+use validator::Validate;
 
-#[derive(Debug, PartialEq, PartialOrd, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, PartialOrd, Serialize, Deserialize, Validate)]
 pub struct User {
     name: String,
+    #[validate(email)]
     email: String,
 }
 
